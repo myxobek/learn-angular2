@@ -6,11 +6,24 @@ import { bootstrap } from 'angular2/platform/browser';
 
 @Component({
     selector: 'todo-app',
-    template: '<h1>TODO!!</h1>'
+    template: `<h1>{{title}}</h1>
+        <ul>
+            <li *ngFor="#todo of todos">{{todo}}</li>
+        </ul>`
 })
 
 class AppComponent {
+    title: string;
+    todos: string[];
 
+    constructor() {
+        this.title = 'Todo';
+        this.todos = [
+            'hello',
+            'world!',
+            'wow'
+        ]
+    }
 }
 
 bootstrap( AppComponent );
